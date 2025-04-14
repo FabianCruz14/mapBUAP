@@ -4,8 +4,8 @@ import Map from './components/Map';
 
 export default function App() {
   const region = {
-    latitude: 37.78825,
-    longitude: -122.4324,
+    latitude: 19.004724,
+    longitude: -98.204391,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   };
