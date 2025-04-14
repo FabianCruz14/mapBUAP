@@ -1,19 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, SafeAreaView} from 'react-native';
 import Map from './components/Map';
 
 export default function App() {
+  const region = {
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  };
+  
   return (
-    <View style={styles.container}>
-      {/* <Map
-        region={{
-          latitude: -19.005180,
-          longitude: -98.198210,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      /> */}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Map region ={region} />
+    </SafeAreaView>
   );
 }
 

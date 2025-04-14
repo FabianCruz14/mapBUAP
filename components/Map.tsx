@@ -34,7 +34,7 @@ import MapView, {Marker} from "react-native-maps";
   
 //   document.body.textContent = GrettingCardPlayer(fchdev);
 
-interface Props {
+type Props = {
     region : {
         latitude: number;
         longitude: number;
@@ -43,54 +43,37 @@ interface Props {
     };
 }
 
-const Map = ({ region }: Props) => {
+const Map : React.FC <Props> = ({region}) =>{
     return (
         // we created a View, its same as Div 
         <View style= {styles.container}>
             {/* then create a MapView  */}
             <MapView
-                style = {{flex:1}}
-                region={region}
+                style = {styles.map}
+                initialRegion={region}
                 showsUserLocation={true}
-                followsUserLocation={true}
             >   
-            {markers.length > 0 && (
-                    <Marker
-                        coordinate={markers[0]}
-                        title={markers[0].title}
-                        description={markers[0].subtitle}
-                        pinColor="blue"
-                    />
-                )}
+            <Marker
+                coordinate={region}
+                title= 'My location'
+                description={'This is my location'}
+                pinColor="blue"
+            />
             </MapView>
         </View>
     )
 }
 
-var markers = [
-    {
-        latitude : -19.005180,
-        longitude : -98.198210,
-        title : 'My Location!',
-        subtitle : 'This is my location',
-    }];
 
 // we create an array of a stylesheets
 let styles = StyleSheet.create({
     // create a container styles whit each prop as css
     container : {
         flex : 1,
-        justifyContent : 'center',
-        alignItems : 'center',
-        backgroundColor : '#00FFFF',
     },
     // then create a container to map
     map : {
-        position: 'absolute',
-        top : 0,
-        left : 0,
-        right : 0,
-        bottom : 0,
+        flex : 1,
     }
 })
 
